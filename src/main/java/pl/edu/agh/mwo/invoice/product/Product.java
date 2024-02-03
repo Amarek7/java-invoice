@@ -1,6 +1,7 @@
 package pl.edu.agh.mwo.invoice.product;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public abstract class Product {
     private final String name;
@@ -10,6 +11,12 @@ public abstract class Product {
     private final BigDecimal taxPercent;
 
     protected Product(String name, BigDecimal price, BigDecimal tax) {
+        if(name == null || name.isEmpty()){
+            throw new IllegalArgumentException("Name cannot be null or empty");
+        }
+        if(price==null || price.signum()<0){
+            throw new IllegalArgumentException("Price cannot be null or has to be greater than zero");
+        }
         this.name = name;
         this.price = price;
         this.taxPercent = tax;
