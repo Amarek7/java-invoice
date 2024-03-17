@@ -127,7 +127,7 @@ public class InvoiceTest {
     }
 
     @Test
-    public String invoiceHasNumber(){
+    public int invoiceHasNumber(){
         return invoice.getNumber();
     }
 }
