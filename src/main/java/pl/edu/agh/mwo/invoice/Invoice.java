@@ -17,21 +17,10 @@ public class Invoice {
     }
 
     public void addProduct(Product product, Integer quantity) {
-        Boolean flag = false;
-        for (Product element : products.keySet()) {
-            if (element.getName().equals(product.getName())) {
-                try{
-                    products.replace(element,products.get(element)+quantity);
-                    flag = true;
-                }catch (Exception e){
-
-                }
-
-            }
+        if (product == null || quantity <= 0) {
+            throw new IllegalArgumentException();
         }
-        if(flag.equals(false)){
-            products.put(product, quantity);
-        }
+        products.put(product, quantity);
     }
 
     public BigDecimal getNetTotal() {
@@ -67,4 +56,6 @@ public class Invoice {
         }
         return stringInvoice.substring(0,stringInvoice.length()-1);
     }
+
+
 }
