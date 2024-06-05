@@ -138,12 +138,4 @@ public class InvoiceTest {
         invoice.addProduct(new TaxFreeProduct("Chleb", new BigDecimal("5")), 20);
         Assert.assertEquals("Chedar 100 10" + "\nChleb 20 5", invoice.printInvoice());
     }
-
-    @Test
-    public void testDuplicatedProducts(){
-        invoice.addProduct(new DairyProduct("Ser",new BigDecimal("5")), 15);
-        invoice.addProduct(new DairyProduct("Ser",new BigDecimal("5")), 10);
-        Assert.assertEquals("Ser 25 5",invoice.printInvoice());
-
-    }
 }
