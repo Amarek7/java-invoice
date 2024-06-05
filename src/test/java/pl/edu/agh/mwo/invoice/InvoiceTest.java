@@ -131,4 +131,10 @@ public class InvoiceTest {
        invoice.getNumber();
        System.out.println(invoice.getNumber());
     }
+
+    @Test
+    public void testPrintInvoice(){
+        invoice.addProduct(new DairyProduct("Chedar", new BigDecimal("10")), 100);
+        Assert.assertEquals("Chedar 100", invoice.printInvoice());
+    }
 }

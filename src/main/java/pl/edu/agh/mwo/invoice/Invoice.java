@@ -6,6 +6,8 @@ import java.util.Map;
 
 import pl.edu.agh.mwo.invoice.product.Product;
 
+import javax.swing.plaf.metal.MetalButtonUI;
+
 public class Invoice {
     private Map<Product, Integer> products = new HashMap<Product, Integer>();
     private int number = 0;
@@ -45,5 +47,13 @@ public class Invoice {
 
     public int getNumber() {
         return number;
+    }
+
+    public String printInvoice() {
+        String stringInvoice = "";
+        for (Map.Entry<Product, Integer> itr : products.entrySet()) {
+            stringInvoice += itr.getKey().getName() + " " + itr.getValue().toString();
+        }
+        return stringInvoice;
     }
 }
