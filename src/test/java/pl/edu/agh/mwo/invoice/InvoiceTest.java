@@ -135,6 +135,7 @@ public class InvoiceTest {
     @Test
     public void testPrintInvoice(){
         invoice.addProduct(new DairyProduct("Chedar", new BigDecimal("10")), 100);
-        Assert.assertEquals("Chedar 100", invoice.printInvoice());
+        invoice.addProduct(new TaxFreeProduct("Chleb", new BigDecimal("5")), 20);
+        Assert.assertEquals("Chedar 100 10" + "\nChleb 20 5", invoice.printInvoice());
     }
 }

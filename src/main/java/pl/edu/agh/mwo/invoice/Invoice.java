@@ -52,8 +52,8 @@ public class Invoice {
     public String printInvoice() {
         String stringInvoice = "";
         for (Map.Entry<Product, Integer> itr : products.entrySet()) {
-            stringInvoice += itr.getKey().getName() + " " + itr.getValue().toString();
+            stringInvoice += itr.getKey().getName() + " " + itr.getValue().toString() + " " + itr.getKey().getPrice() + "\n";
         }
-        return stringInvoice;
+        return stringInvoice.substring(0,stringInvoice.length()-1);
     }
 }
