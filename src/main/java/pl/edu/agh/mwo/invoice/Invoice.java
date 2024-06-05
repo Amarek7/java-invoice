@@ -50,11 +50,15 @@ public class Invoice {
     }
 
     public String printInvoice() {
-        String stringInvoice = "";
+        String stringInvoice = "Numer: " + getNumber() + "\n";
+        int counter =0;
         for (Map.Entry<Product, Integer> itr : products.entrySet()) {
             stringInvoice += itr.getKey().getName() + " " + itr.getValue().toString() + " " + itr.getKey().getPrice() + "\n";
+            counter++;
         }
-        return stringInvoice.substring(0,stringInvoice.length()-1);
+//        stringInvoice.substring(0,stringInvoice.length()-1);
+        stringInvoice += "Liczba pozycji: " + counter;
+        return stringInvoice;
     }
 
 

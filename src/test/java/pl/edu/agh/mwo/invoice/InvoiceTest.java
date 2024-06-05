@@ -136,6 +136,6 @@ public class InvoiceTest {
     public void testPrintInvoice(){
         invoice.addProduct(new DairyProduct("Chedar", new BigDecimal("10")), 100);
         invoice.addProduct(new TaxFreeProduct("Chleb", new BigDecimal("5")), 20);
-        Assert.assertEquals("Chedar 100 10" + "\nChleb 20 5", invoice.printInvoice());
+        Assert.assertEquals("Numer: 0\nChedar 100 10" + "\nChleb 20 5\nLiczba pozycji: 2", invoice.printInvoice());
     }
 }
